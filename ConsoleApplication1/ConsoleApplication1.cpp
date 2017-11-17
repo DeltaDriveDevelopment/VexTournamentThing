@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <string>
+#include <fstream>
 #define _CRT_SECURE_NO_WARNINGS
 
 void LeftClick(POINT point);
@@ -42,15 +43,37 @@ int main()
 
   managerwindow = FindWindow(NULL, L"VEX Tournament Manager");
   SetWindowPos(managerwindow, nullptr, desktopWidth / 2, desktopHeight / 2, desktopWidth / 2, desktopHeight / 2, NULL);
-  SetForegroundWindow(managerwindow);
+  SetForegroundWindow(terminalWindow);
+
+  std::string obsWindowTitle;
+  printf("Enter the name of OBS Window\n");
+  getline(std::cin, obsWindowTitle);
   
-  OBS = FindWindow(NULL, L"OBS 0.16.5 (windows) - Profile: Untitled - Scenes: Untitled");
+  //OBS = FindWindow(NULL, L"OBS 0.16.5 (windows) - Profile: Untitled - Scenes: Untitled");
+  int bufferlen = ::MultiByteToWideChar(CP_ACP, 0, obsWindowTitle.c_str(), obsWindowTitle.size(), NULL, 0);
+  LPWSTR widestr = new WCHAR[bufferlen + 1];
+  ::MultiByteToWideChar(CP_ACP, 0, obsWindowTitle.c_str(), obsWindowTitle.size(), widestr, bufferlen);
+  widestr[bufferlen] = 0;
+  LPCWSTR constWideString = widestr;
+
+
+  OBS = FindWindow(NULL, constWideString);
   SetWindowPos(OBS, nullptr, 0, 0, (desktopWidth / 2), (desktopHeight / 2), NULL);
-  SetForegroundWindow(OBS);
-    
-  controlwindow = FindWindow(NULL, L"Field Control");
+  SetForegroundWindow(terminalWindow);
+
+  std::string fieldSetControlTitle;
+  printf("Enter the name of the field set control window\n");
+  getline(std::cin, fieldSetControlTitle);
+  
+  int bufferlen2 = ::MultiByteToWideChar(CP_ACP, 0, fieldSetControlTitle.c_str(), fieldSetControlTitle.size(), NULL, 0);
+  LPWSTR widestr2 = new WCHAR[bufferlen + 1];
+  ::MultiByteToWideChar(CP_ACP, 0, fieldSetControlTitle.c_str(), fieldSetControlTitle.size(), widestr2, bufferlen);
+  widestr2[bufferlen] = 0;
+  LPCWSTR constWideString2 = widestr2;
+
+  controlwindow = FindWindow(NULL, constWideString2);
   SetWindowPos(controlwindow, nullptr, 0, desktopHeight / 2, desktopWidth / 2, desktopHeight / 2, NULL);
-  SetForegroundWindow(controlwindow);
+  SetForegroundWindow(terminalWindow);
 
   printf("Hover your mouse over the Scene1 button and press a control key\nA sound will play once you've pressed control\n\n");
 
@@ -95,13 +118,28 @@ int main()
   MessageBeep(MB_ICONWARNING);
   Sleep(300);
 
+
+
   bool running = true;
 
   int stage = 0;
 
+  int incrementKey;
+  int switchDisplayKey;
+  int useSafety;
+  int safetyKey;
+  std::fstream infile;
+  infile.open("keyConfig.txt", std::fstream::in);
+
+  infile >> std::hex >> incrementKey;
+  infile >> std::hex >> switchDisplayKey;
+  infile >> useSafety;
+  if(useSafety) infile >> std::hex >> safetyKey;
+
   printControls();
   while (running)
   {
+    //Reset Windows
     if (GetAsyncKeyState(VK_SHIFT) && GetAsyncKeyState(0x38))
     {
       WCHAR title[900];
@@ -132,7 +170,8 @@ int main()
       printControls();
     }
 
-    else if (GetAsyncKeyState(VK_SHIFT) && GetAsyncKeyState(VK_OEM_PLUS))
+    //Increment
+    else if ((useSafety) ? GetAsyncKeyState(safetyKey) && GetAsyncKeyState(incrementKey) : GetAsyncKeyState(incrementKey))
     {
       //TODO Increment stage
       stage++;
@@ -173,7 +212,7 @@ int main()
       printControls();
     }
 
-    else if (GetAsyncKeyState(0x30)) // 0 key
+    else if (GetAsyncKeyState(switchDisplayKey)) // 0 key
     {
       // todo Switch displayed field
       printf("Swapping display to ");
