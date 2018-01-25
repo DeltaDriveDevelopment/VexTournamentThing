@@ -247,6 +247,7 @@ void LeftClick(POINT point)
   SetCursorPos(point.x, point.y);
   mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
   mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+  SetFocus(terminalWindow);
 }
 
 void Display()

@@ -1,2 +1,5 @@
 ﻿  ConsoleApplication1.cpp
-  ConsoleApplication1.vcxproj -> e:\documents\visual studio 2015\Projects\ConsoleApplication1\Debug\ConsoleApplication1.exe
+c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(8): warning C4005: '_CRT_SECURE_NO_WARNINGS': macro redefinition
+  c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(8): note: command-line arguments:  see previous definition of '_CRT_SECURE_NO_WARNINGS'
+  ConsoleApplication1.vcxproj -> C:\Users\TMclachlan\Documents\VexTournamentManagerVisualControler\VexTournamentThing\Debug\ConsoleApplication1.exe
+  ConsoleApplication1.vcxproj -> C:\Users\TMclachlan\Documents\VexTournamentManagerVisualControler\VexTournamentThing\Debug\ConsoleApplication1.pdb (Partial PDB)

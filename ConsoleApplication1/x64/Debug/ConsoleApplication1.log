@@ -1,3 +1,7 @@
-﻿  stdafx.cpp
-  ConsoleApplication1.cpp
-  ConsoleApplication1.vcxproj -> e:\documents\visual studio 2015\Projects\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+﻿  ConsoleApplication1.cpp
+c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(53): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\tmclachlan\documents\vextournamentmanagervisualcontroler\vextournamentthing\consoleapplication1\consoleapplication1.cpp(70): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  ConsoleApplication1.vcxproj -> C:\Users\TMclachlan\Documents\VexTournamentManagerVisualControler\VexTournamentThing\x64\Debug\ConsoleApplication1.exe
+  ConsoleApplication1.vcxproj -> C:\Users\TMclachlan\Documents\VexTournamentManagerVisualControler\VexTournamentThing\x64\Debug\ConsoleApplication1.pdb (Partial PDB)
