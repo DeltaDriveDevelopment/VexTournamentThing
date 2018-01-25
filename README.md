@@ -1,2 +1,2 @@
 # VexTournamentThing
-Thing for the Vex Tournament I guess
+Windows Vex tournament field control and camera automation.
