@@ -1,2 +1,4 @@
 # VexTournamentThing
-Thing for the Vex Tournament I guess
+REPOSITORY HAS MOVED.
+
+New repo located at https://github.com/weasel1453/VexTournamentAutomation
