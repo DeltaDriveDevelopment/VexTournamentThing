@@ -66,9 +66,9 @@ int main()
   getline(std::cin, fieldSetControlTitle);
   
   int bufferlen2 = ::MultiByteToWideChar(CP_ACP, 0, fieldSetControlTitle.c_str(), fieldSetControlTitle.size(), NULL, 0);
-  LPWSTR widestr2 = new WCHAR[bufferlen + 1];
-  ::MultiByteToWideChar(CP_ACP, 0, fieldSetControlTitle.c_str(), fieldSetControlTitle.size(), widestr2, bufferlen);
-  widestr2[bufferlen] = 0;
+  LPWSTR widestr2 = new WCHAR[bufferlen2 + 1];
+  ::MultiByteToWideChar(CP_ACP, 0, fieldSetControlTitle.c_str(), fieldSetControlTitle.size(), widestr2, bufferlen2);
+  widestr2[bufferlen2] = 0;
   LPCWSTR constWideString2 = widestr2;
 
   controlwindow = FindWindow(NULL, constWideString2);
